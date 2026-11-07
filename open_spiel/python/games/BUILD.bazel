@@ -409,6 +409,27 @@ py_test(
 )
 
 py_library(
+    name = "el_farol",
+    srcs = ["el_farol.py"],
+    strict_deps = True,
+    deps = [
+        "//open_spiel/python/pybind11:pyspiel",
+        "@py_deps//numpy",
+    ],
+)
+
+py_test(
+    name = "el_farol_test",
+    srcs = ["el_farol_test.py"],
+    deps = [
+        ":el_farol",
+        "//open_spiel/python/pybind11:pyspiel",
+        "@py_deps//absl/testing:absltest",
+        "@py_deps//numpy",
+    ],
+)
+
+py_library(
     name = "games",
     srcs = ["__init__.py"],
     strict_deps = True,
@@ -417,6 +438,7 @@ py_library(
         ":block_dominoes",
         ":chat_game",
         ":dynamic_routing",
+        ":el_farol",
         ":hangman",
         ":iterated_prisoners_dilemma",
         ":kuhn_poker",

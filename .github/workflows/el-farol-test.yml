@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         python: ["3.11", "3.12"]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,22 +20,25 @@ jobs:
       - name: Install the released open_spiel wheel
         run: pip install open_spiel absl-py numpy pytest
       - name: Drop the new game into the installed package
+        working-directory: /tmp
         run: |
           GAMES=$(python -c "import open_spiel.python.games as g, os; print(os.path.dirname(g.__file__))")
-          cp open_spiel/python/games/el_farol.py open_spiel/python/games/el_farol_test.py "$GAMES"/
+          cp "$GITHUB_WORKSPACE"/open_spiel/python/games/el_farol.py "$GITHUB_WORKSPACE"/open_spiel/python/games/el_farol_test.py "$GAMES"/
           echo "GAMES=$GAMES" >> "$GITHUB_ENV"
       - name: Run the El Farol tests
+        working-directory: /tmp
         run: python -m pytest "$GAMES/el_farol_test.py" -v
       - name: Generate the playthrough
+        working-directory: /tmp
         run: |
           python - <<'PY'
           from open_spiel.python.algorithms import generate_playthrough
           from open_spiel.python.games import el_farol  # registers the game
           text = generate_playthrough.playthrough("python_el_farol", None, seed=1234)
-          open("python_el_farol.txt", "w").write(text)
+          open("/tmp/python_el_farol.txt", "w").write(text)
           PY
-          head -60 python_el_farol.txt
+          head -60 /tmp/python_el_farol.txt
       - uses: actions/upload-artifact@v4
         with:
           name: playthrough-py${{ matrix.python }}
-          path: python_el_farol.txt
+          path: /tmp/python_el_farol.txt

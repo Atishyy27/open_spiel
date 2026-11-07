@@ -1,0 +1,289 @@
+game: python_el_farol
+
+GameType.chance_mode = ChanceMode.DETERMINISTIC
+GameType.dynamics = Dynamics.SIMULTANEOUS
+GameType.information = Information.IMPERFECT_INFORMATION
+GameType.long_name = "Python El Farol Bar"
+GameType.max_num_players = 100
+GameType.min_num_players = 2
+GameType.parameter_specification = ["capacity", "num_rounds", "players"]
+GameType.provides_information_state_string = True
+GameType.provides_information_state_tensor = True
+GameType.provides_observation_string = True
+GameType.provides_observation_tensor = True
+GameType.provides_factored_observation_string = False
+GameType.reward_model = RewardModel.REWARDS
+GameType.short_name = "python_el_farol"
+GameType.utility = Utility.GENERAL_SUM
+
+NumDistinctActions() = 2
+PolicyTensorShape() = [2]
+MaxChanceOutcomes() = 0
+GetParameters() = {capacity=3,num_rounds=10,players=5}
+NumPlayers() = 5
+MinUtility() = -10.0
+MaxUtility() = 10.0
+UtilitySum() = None
+InformationStateTensorShape() = attendance: [10], went: [10]
+InformationStateTensorLayout() = TensorLayout.CHW
+InformationStateTensorSize() = 20
+ObservationTensorShape() = attendance: [1], went: [1]
+ObservationTensorLayout() = TensorLayout.CHW
+ObservationTensorSize() = 2
+MaxGameLength() = 10
+ToString() = "python_el_farol(capacity=3,num_rounds=10,players=5)"
+
+# State 0
+# attendance:
+IsTerminal() = False
+History() = []
+HistoryString() = ""
+IsChanceNode() = False
+IsSimultaneousNode() = True
+CurrentPlayer() = -2
+InformationStateString(0) = "attendance: went:"
+InformationStateString(1) = "attendance: went:"
+InformationStateString(2) = "attendance: went:"
+InformationStateString(3) = "attendance: went:"
+InformationStateString(4) = "attendance: went:"
+InformationStateTensor(0).attendance: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(0).went: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(1).attendance: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(1).went: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(2).attendance: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(2).went: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(3).attendance: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(3).went: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(4).attendance: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(4).went: ◯◯◯◯◯◯◯◯◯◯
+ObservationString(0) = "attendance: went:"
+ObservationString(1) = "attendance: went:"
+ObservationString(2) = "attendance: went:"
+ObservationString(3) = "attendance: went:"
+ObservationString(4) = "attendance: went:"
+PublicObservationString() = "attendance:"
+PrivateObservationString(0) = "went:"
+PrivateObservationString(1) = "went:"
+PrivateObservationString(2) = "went:"
+PrivateObservationString(3) = "went:"
+PrivateObservationString(4) = "went:"
+ObservationTensor(0).attendance: ◯
+ObservationTensor(0).went: ◯
+ObservationTensor(1).attendance: ◯
+ObservationTensor(1).went: ◯
+ObservationTensor(2).attendance: ◯
+ObservationTensor(2).went: ◯
+ObservationTensor(3).attendance: ◯
+ObservationTensor(3).went: ◯
+ObservationTensor(4).attendance: ◯
+ObservationTensor(4).went: ◯
+Rewards() = [0, 0, 0, 0, 0]
+Returns() = [0, 0, 0, 0, 0]
+LegalActions(0) = [0, 1]
+LegalActions(1) = [0, 1]
+LegalActions(2) = [0, 1]
+LegalActions(3) = [0, 1]
+LegalActions(4) = [0, 1]
+StringLegalActions(0) = ["STAY", "GO"]
+StringLegalActions(1) = ["STAY", "GO"]
+StringLegalActions(2) = ["STAY", "GO"]
+StringLegalActions(3) = ["STAY", "GO"]
+StringLegalActions(4) = ["STAY", "GO"]
+
+# Apply joint action ["GO", "GO", "STAY", "GO", "STAY"]
+actions: [1, 1, 0, 1, 0]
+
+# State 1
+# attendance: 3
+IsTerminal() = False
+History() = [1, 1, 0, 1, 0]
+HistoryString() = "1, 1, 0, 1, 0"
+IsChanceNode() = False
+IsSimultaneousNode() = True
+CurrentPlayer() = -2
+InformationStateString(0) = "attendance:3 went:G"
+InformationStateString(1) = "attendance:3 went:G"
+InformationStateString(2) = "attendance:3 went:S"
+InformationStateString(3) = "attendance:3 went:G"
+InformationStateString(4) = "attendance:3 went:S"
+InformationStateTensor(0).attendance = [0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(0).went: ◉◯◯◯◯◯◯◯◯◯
+InformationStateTensor(1).attendance = [0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(1).went: ◉◯◯◯◯◯◯◯◯◯
+InformationStateTensor(2).attendance = [0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(2).went: ◯◯◯◯◯◯◯◯◯◯
+InformationStateTensor(3).attendance = [0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(3).went: ◉◯◯◯◯◯◯◯◯◯
+InformationStateTensor(4).attendance = [0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(4).went: ◯◯◯◯◯◯◯◯◯◯
+ObservationString(0) = "attendance:3 went:G"
+ObservationString(1) = "attendance:3 went:G"
+ObservationString(2) = "attendance:3 went:S"
+ObservationString(3) = "attendance:3 went:G"
+ObservationString(4) = "attendance:3 went:S"
+PublicObservationString() = "attendance:3"
+PrivateObservationString(0) = "went:G"
+PrivateObservationString(1) = "went:G"
+PrivateObservationString(2) = "went:S"
+PrivateObservationString(3) = "went:G"
+PrivateObservationString(4) = "went:S"
+ObservationTensor(0).attendance = [0.6]
+ObservationTensor(0).went: ◉
+ObservationTensor(1).attendance = [0.6]
+ObservationTensor(1).went: ◉
+ObservationTensor(2).attendance = [0.6]
+ObservationTensor(2).went: ◯
+ObservationTensor(3).attendance = [0.6]
+ObservationTensor(3).went: ◉
+ObservationTensor(4).attendance = [0.6]
+ObservationTensor(4).went: ◯
+Rewards() = [1, 1, 0, 1, 0]
+Returns() = [1, 1, 0, 1, 0]
+LegalActions(0) = [0, 1]
+LegalActions(1) = [0, 1]
+LegalActions(2) = [0, 1]
+LegalActions(3) = [0, 1]
+LegalActions(4) = [0, 1]
+StringLegalActions(0) = ["STAY", "GO"]
+StringLegalActions(1) = ["STAY", "GO"]
+StringLegalActions(2) = ["STAY", "GO"]
+StringLegalActions(3) = ["STAY", "GO"]
+StringLegalActions(4) = ["STAY", "GO"]
+
+# Apply joint action ["STAY", "STAY", "GO", "GO", "GO"]
+actions: [0, 0, 1, 1, 1]
+
+# State 2
+# attendance: 3 3
+IsTerminal() = False
+History() = [1, 1, 0, 1, 0, 0, 0, 1, 1, 1]
+HistoryString() = "1, 1, 0, 1, 0, 0, 0, 1, 1, 1"
+IsChanceNode() = False
+IsSimultaneousNode() = True
+CurrentPlayer() = -2
+InformationStateString(0) = "attendance:3,3 went:GS"
+InformationStateString(1) = "attendance:3,3 went:GS"
+InformationStateString(2) = "attendance:3,3 went:SG"
+InformationStateString(3) = "attendance:3,3 went:GG"
+InformationStateString(4) = "attendance:3,3 went:SG"
+InformationStateTensor(0).attendance = [0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(0).went: ◉◯◯◯◯◯◯◯◯◯
+InformationStateTensor(1).attendance = [0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(1).went: ◉◯◯◯◯◯◯◯◯◯
+InformationStateTensor(2).attendance = [0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(2).went: ◯◉◯◯◯◯◯◯◯◯
+InformationStateTensor(3).attendance = [0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(3).went: ◉◉◯◯◯◯◯◯◯◯
+InformationStateTensor(4).attendance = [0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+InformationStateTensor(4).went: ◯◉◯◯◯◯◯◯◯◯
+ObservationString(0) = "attendance:3 went:S"
+ObservationString(1) = "attendance:3 went:S"
+ObservationString(2) = "attendance:3 went:G"
+ObservationString(3) = "attendance:3 went:G"
+ObservationString(4) = "attendance:3 went:G"
+PublicObservationString() = "attendance:3"
+PrivateObservationString(0) = "went:S"
+PrivateObservationString(1) = "went:S"
+PrivateObservationString(2) = "went:G"
+PrivateObservationString(3) = "went:G"
+PrivateObservationString(4) = "went:G"
+ObservationTensor(0).attendance = [0.6]
+ObservationTensor(0).went: ◯
+ObservationTensor(1).attendance = [0.6]
+ObservationTensor(1).went: ◯
+ObservationTensor(2).attendance = [0.6]
+ObservationTensor(2).went: ◉
+ObservationTensor(3).attendance = [0.6]
+ObservationTensor(3).went: ◉
+ObservationTensor(4).attendance = [0.6]
+ObservationTensor(4).went: ◉
+Rewards() = [0, 0, 1, 1, 1]
+Returns() = [1, 1, 1, 2, 1]
+LegalActions(0) = [0, 1]
+LegalActions(1) = [0, 1]
+LegalActions(2) = [0, 1]
+LegalActions(3) = [0, 1]
+LegalActions(4) = [0, 1]
+StringLegalActions(0) = ["STAY", "GO"]
+StringLegalActions(1) = ["STAY", "GO"]
+StringLegalActions(2) = ["STAY", "GO"]
+StringLegalActions(3) = ["STAY", "GO"]
+StringLegalActions(4) = ["STAY", "GO"]
+
+# Apply joint action ["GO", "GO", "STAY", "STAY", "GO"]
+actions: [1, 1, 0, 0, 1]
+
+# State 3
+# Apply joint action ["STAY", "STAY", "STAY", "STAY", "STAY"]
+actions: [0, 0, 0, 0, 0]
+
+# State 4
+# Apply joint action ["STAY", "STAY", "STAY", "STAY", "GO"]
+actions: [0, 0, 0, 0, 1]
+
+# State 5
+# Apply joint action ["STAY", "GO", "GO", "STAY", "STAY"]
+actions: [0, 1, 1, 0, 0]
+
+# State 6
+# Apply joint action ["GO", "STAY", "STAY", "GO", "STAY"]
+actions: [1, 0, 0, 1, 0]
+
+# State 7
+# Apply joint action ["GO", "STAY", "STAY", "STAY", "GO"]
+actions: [1, 0, 0, 0, 1]
+
+# State 8
+# Apply joint action ["GO", "GO", "STAY", "GO", "GO"]
+actions: [1, 1, 0, 1, 1]
+
+# State 9
+# Apply joint action ["STAY", "GO", "STAY", "GO", "STAY"]
+actions: [0, 1, 0, 1, 0]
+
+# State 10
+# attendance: 3 3 3 0 1 2 2 2 4 2
+IsTerminal() = True
+History() = [1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0]
+HistoryString() = "1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0"
+IsChanceNode() = False
+IsSimultaneousNode() = False
+CurrentPlayer() = -4
+InformationStateString(0) = "attendance:3,3,3,0,1,2,2,2,4,2 went:GSGSSSGGGS"
+InformationStateString(1) = "attendance:3,3,3,0,1,2,2,2,4,2 went:GSGSSGSSGG"
+InformationStateString(2) = "attendance:3,3,3,0,1,2,2,2,4,2 went:SGSSSGSSSS"
+InformationStateString(3) = "attendance:3,3,3,0,1,2,2,2,4,2 went:GGSSSSGSGG"
+InformationStateString(4) = "attendance:3,3,3,0,1,2,2,2,4,2 went:SGGSGSSGGS"
+InformationStateTensor(0).attendance = [0.6, 0.6, 0.6, 0.0, 0.2, 0.4, 0.4, 0.4, 0.8, 0.4]
+InformationStateTensor(0).went: ◉◯◉◯◯◯◉◉◉◯
+InformationStateTensor(1).attendance = [0.6, 0.6, 0.6, 0.0, 0.2, 0.4, 0.4, 0.4, 0.8, 0.4]
+InformationStateTensor(1).went: ◉◯◉◯◯◉◯◯◉◉
+InformationStateTensor(2).attendance = [0.6, 0.6, 0.6, 0.0, 0.2, 0.4, 0.4, 0.4, 0.8, 0.4]
+InformationStateTensor(2).went: ◯◉◯◯◯◉◯◯◯◯
+InformationStateTensor(3).attendance = [0.6, 0.6, 0.6, 0.0, 0.2, 0.4, 0.4, 0.4, 0.8, 0.4]
+InformationStateTensor(3).went: ◉◉◯◯◯◯◉◯◉◉
+InformationStateTensor(4).attendance = [0.6, 0.6, 0.6, 0.0, 0.2, 0.4, 0.4, 0.4, 0.8, 0.4]
+InformationStateTensor(4).went: ◯◉◉◯◉◯◯◉◉◯
+ObservationString(0) = "attendance:2 went:S"
+ObservationString(1) = "attendance:2 went:G"
+ObservationString(2) = "attendance:2 went:S"
+ObservationString(3) = "attendance:2 went:G"
+ObservationString(4) = "attendance:2 went:S"
+PublicObservationString() = "attendance:2"
+PrivateObservationString(0) = "went:S"
+PrivateObservationString(1) = "went:G"
+PrivateObservationString(2) = "went:S"
+PrivateObservationString(3) = "went:G"
+PrivateObservationString(4) = "went:S"
+ObservationTensor(0).attendance = [0.4]
+ObservationTensor(0).went: ◯
+ObservationTensor(1).attendance = [0.4]
+ObservationTensor(1).went: ◉
+ObservationTensor(2).attendance = [0.4]
+ObservationTensor(2).went: ◯
+ObservationTensor(3).attendance = [0.4]
+ObservationTensor(3).went: ◉
+ObservationTensor(4).attendance = [0.4]
+ObservationTensor(4).went: ◯
+Rewards() = [0, 1, 0, 1, 0]
+Returns() = [3, 3, 2, 3, 3]
